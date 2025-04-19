@@ -1,0 +1,163 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to bottom, #74ebd5, #acb6e5); /* Restore background gradient */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    color: #333;
+}
+
+/* Auth Container (Center alignment) */
+.auth-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Auth Card Styling */
+.auth-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: fadeIn 0.8s ease-in-out;
+    position: relative; /* Ensures that the logout button can be placed at the top-right */
+}
+
+/* Header Styling */
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #4b6584;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #a5b1c2;
+    margin-bottom: 20px;
+}
+
+/* Logout Button Styling at top-right */
+#logout-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #e74c3c; /* Red color */
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    border: none;
+    z-index: 10; /* Ensure it's above other content */
+}
+
+#logout-btn:hover {
+    background: #c0392b; /* Darker red on hover */
+}
+
+/* Form Styling */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    font-weight: 500;
+    color: #4b6584;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #d1d8e0;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #45aaf2;
+}
+
+/* Buttons */
+.btn-primary {
+    width: 100%;
+    background: #2d98da;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #227093;
+}
+
+/* Flash Messages */
+.flash-message {
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.flash-message.success {
+    background: #2ecc71;
+    color: #fff;
+}
+
+.flash-message.error {
+    background: #e74c3c;
+    color: #fff;
+}
+
+/* Register Link */
+.register-link {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.register-link a {
+    color: #3867d6;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

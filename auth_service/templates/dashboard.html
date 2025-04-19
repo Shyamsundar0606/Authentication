@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Authentication Service</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <h1>Welcome, {{ username }}!</h1>
+            <p class="subtitle">You are now logged in as <strong>{{ role }}</strong>.</p>
+
+            <!-- Logout Button at the top-right -->
+            <button id="logout-btn" onclick="window.location.href='/logout'">Logout</button>
+
+            {% if role == 'admin' %}
+                <!-- Manage Users Button -->
+                <button id="manage-users-btn" class="btn-primary" onclick="toggleUserManagement()">Manage Users</button>
+
+                <!-- User List -->
+                <div id="user-list" class="table-container" style="display: none;">
+                    <h2>Registered Users</h2>
+                    {% if user_list %}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for user in user_list %}
+                            <tr>
+                                <td>{{ user.username }}</td>
+                                <td>{{ user.email }}</td>
+                                <td>
+                                    <form action="/manage-users" method="POST" style="display: inline;">
+                                        <input type="hidden" name="username" value="{{ user.username }}">
+                                        <button type="submit" class="btn-danger">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else %}
+                    <p>No users found with the role 'user'.</p>
+                    {% endif %}
+                    <button class="btn-primary" onclick="toggleUserManagement()">Hide Users</button>
+                </div>
+            {% else %}
+                <p>You are logged in as a regular user.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+        function toggleUserManagement() {
+            const userList = document.getElementById('user-list');
+            const manageUsersBtn = document.getElementById('manage-users-btn');
+
+            if (userList.style.display === 'none') {
+                userList.style.display = 'block';
+                manageUsersBtn.style.display = 'none';  // Hide the "Manage Users" button when the list is visible
+            } else {
+                userList.style.display = 'none';
+                manageUsersBtn.style.display = 'inline-block';  // Show the "Manage Users" button again
+            }
+        }
+    </script>
+    <!-- Other content... -->
+
+<!-- New script for auto logout functionality -->
+    <script>
+        let inactivityTimer;
+        const TIMEOUT_LIMIT = 10 * 1000;  // 30 seconds in milliseconds
+        
+        // Reset timer function
+        function resetInactivityTimer() {
+            clearTimeout(inactivityTimer);
+            inactivityTimer = setTimeout(logoutUser, TIMEOUT_LIMIT);
+        }
+        
+        // Function to handle user logout
+        function logoutUser() {
+            // Clear the token cookie (this assumes the JWT is stored as a cookie)
+            document.cookie = "token=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/";
+            
+            // Redirect to the login page
+            window.location.href = "/?session_timeout=true";
+        }
+        
+        // Event listeners to reset the timer when the user is active
+        window.onload = resetInactivityTimer;
+        document.onmousemove = resetInactivityTimer;
+        document.onkeypress = resetInactivityTimer;
+    </script>
+    
+</body>
+</html>

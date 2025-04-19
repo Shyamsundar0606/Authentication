@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Authentication Service</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <h1>Create Your Account</h1>
+            <p class="subtitle">Sign up to access your dashboard</p>
+            
+            <!-- Display Flash Messages -->
+            {% if error %}
+            <p class="error">{{ error }}</p>
+            {% endif %}
+            
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% set last_message = messages[-1] %}
+            <div class="flash-message {{ last_message[0] }}">
+                {{ last_message[1] }}
+            </div>
+            {% endif %}
+            {% endwith %}
+            
+            <!-- Registration Form -->
+            <form action="/register" method="POST">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="role">Choose Role:</label>
+                    <select id="role" name="role" required>
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary">Register</button>
+            </form>
+            
+            <p class="register-link">Already have an account? <a href="/">Login here</a>.</p>
+        </div>
+    </div>
+</body>
+</html>

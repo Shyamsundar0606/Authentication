@@ -1,0 +1,32 @@
+version: "3.9"
+services:
+  app:
+    build:
+      context: .
+    container_name: auth_service
+    ports:
+      - "5003:5003"
+    environment:
+      - FLASK_ENV=development
+      - SECRET_KEY=your_secret_key
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - redis
+    volumes:
+      - .:/app
+    networks:
+      - app-network
+
+  redis:
+    image: redis:alpine
+    container_name: redis_service
+    ports:
+      - "6379:6379"
+    command: ["redis-server", "--appendonly", "yes"]
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

@@ -1,0 +1,42 @@
+{
+    "Shiva": {
+        "password": "scrypt:32768:8:1$v5Q5QG4MWSmZBV0n$74ba5bcd02261f8ba9fc1898856d9c26c0ee82534b4850db84d6016798daef5891a5de8dcaa25e5c0f68ace05f27e41e509f5b162850947dbaeff6a4d54eaaa6",
+        "email": "shanlevi734@gmail.com",
+        "role": "admin"
+    },
+    "Deepak": {
+        "password": "scrypt:32768:8:1$4qhuZq1OVozmWILy$10f38a31e2cda9a236d10c276ab82d3331b3532fa049011dae1dd16ed81283b27fe4fb2df43334fa6bd17c524c9d71ec848f5aa644233423b6c58d5ce00a8e8f",
+        "email": "123@gmail.com",
+        "role": "user"
+    },
+    "Levi": {
+        "password": "scrypt:32768:8:1$taTRFoCUQvkayKO0$98a9e16d8d954ec439657ede41847dd60391c771c71ae2b9aab2257a67c7e29773781a630914be2740264af30d04b7cb363cbad9b02133a653ea66a2dfe02658",
+        "email": "123@gmail.com",
+        "role": "user"
+    },
+    "karthi": {
+        "password": "scrypt:32768:8:1$hnwnCgN7deGMujFv$85a2ce4e275755eb226bc2e90e47be2dd0b51cd8de722eafa4589a3c617473accabf377024a65af01bbc3283bb55df68c714e2f45bca0d60f1b2359ae03b1cbb",
+        "email": "karthikeyankumar08@gmail.com",
+        "role": "user"
+    },
+    "karthikeyan": {
+        "password": "scrypt:32768:8:1$6XiCKhFY3VVJTrPv$a924e9f7f1386cb9c60f66561c187eaea5af69139cccabbbd8926e558c2624bf4accee2b3d9ae804edcfb58fd8ae1395709dd931062907ca431046e1340b77d8",
+        "email": "karthikeyan.senthilkumar@epita.fr",
+        "role": "user"
+    },
+    "9025308677": {
+        "password": "scrypt:32768:8:1$ommEDhlCVVG86vvN$10f9c666219f8e3c8cd8dff26867fa7b7e87734f0bfff5ac527bd2ad388ae08ab00e22eb4aef31ef82566708939944857fa49f76072c3a6d413a1e5b4c6dfd95",
+        "email": "xyz@gmail.com",
+        "role": "user"
+    },
+    "shyam": {
+        "password": "scrypt:32768:8:1$ntKaURgZjRtYTmGn$84a028885c2af0f82875f5e4deb8c55b20ae96d78881f9e1afb04d0e06d0977b61814c42cceb070c5ba42f95b8b875dd65b6016d0565bcc30d276c94ccf46907",
+        "email": "xyz@gail.com",
+        "role": "admin"
+    },
+    "shyams": {
+        "password": "scrypt:32768:8:1$GXJ3eRLgY0Cyo2at$760f075c67b2b3d2f20145ed60a8475d13f8a6c348e9554afcf325490f95ec77ddb8a6326be22f6e8b30b2dc527876102e1045d47e7028a42a0d2bf3467b6fb7",
+        "email": "shyamsasikumar0606@gmail.com",
+        "role": "user"
+    }
+}
